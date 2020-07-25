@@ -4,4 +4,4 @@
 
 Creating a CRUD API service using Express/GraphQL, TypeORM and Postgres
 
-
+![image](/Schema.JPG)
