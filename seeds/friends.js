@@ -1,4 +1,4 @@
-const friends = require("./seedFriends");
+const friends = require("../seedFriends");
 
 exports.seed = function(knex, Promise) {
   return knex('friends').del()
