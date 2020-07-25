@@ -1,0 +1,184 @@
+{
+	"address": [
+		{
+			"friendName": "Kayla",
+			"friendLastName": "Kovacek",
+			"friendAd": {
+				"city": "Stammport",
+				"streetName": "Reichel Village",
+				"streeAdress": 426
+			}
+		},
+		{
+			"friendName": "Corbin",
+			"friendLastName": "Conn",
+			"friendAd": {
+				"city": "North Zoetown",
+				"streetName": "Marty Run",
+				"streeAdress": 95654
+			}
+		},
+		{
+			"friendName": "Frederic",
+			"friendLastName": "Quitzon",
+			"friendAd": {
+				"city": "Douglasborough",
+				"streetName": "Walker Cove",
+				"streeAdress": 4903
+			}
+		},
+		{
+			"friendName": "Marielle",
+			"friendLastName": "Cummerata",
+			"friendAd": {
+				"city": "Koelpinmouth",
+				"streetName": "Ned Mountains",
+				"streeAdress": 480
+			}
+		},
+		{
+			"friendName": "Oma",
+			"friendLastName": "Pagac",
+			"friendAd": {
+				"city": "Mertzville",
+				"streetName": "Little Loaf",
+				"streeAdress": 940
+			}
+		},
+		{
+			"friendName": "Dagmar",
+			"friendLastName": "Luettgen",
+			"friendAd": {
+				"city": "Port Carson",
+				"streetName": "Jaeden Gateway",
+				"streeAdress": 70469
+			}
+		},
+		{
+			"friendName": "Ena",
+			"friendLastName": "Gutmann",
+			"friendAd": {
+				"city": "Sydneytown",
+				"streetName": "Felicity Road",
+				"streeAdress": 906
+			}
+		},
+		{
+			"friendName": "Adriana",
+			"friendLastName": "Olson",
+			"friendAd": {
+				"city": "Paucekside",
+				"streetName": "D'Amore Wall",
+				"streeAdress": 82352
+			}
+		},
+		{
+			"friendName": "Levi",
+			"friendLastName": "Carter",
+			"friendAd": {
+				"city": "West Alyson",
+				"streetName": "Schinner Ridges",
+				"streeAdress": 3834
+			}
+		},
+		{
+			"friendName": "Khalid",
+			"friendLastName": "Funk",
+			"friendAd": {
+				"city": "North Earl",
+				"streetName": "Kreiger Rest",
+				"streeAdress": 5924
+			}
+		},
+		{
+			"friendName": "Donny",
+			"friendLastName": "Brekke",
+			"friendAd": {
+				"city": "West Zander",
+				"streetName": "Efrain Lodge",
+				"streeAdress": 3247
+			}
+		},
+		{
+			"friendName": "Constance",
+			"friendLastName": "Thiel",
+			"friendAd": {
+				"city": "Port Tad",
+				"streetName": "Barton Wall",
+				"streeAdress": 42097
+			}
+		},
+		{
+			"friendName": "Newell",
+			"friendLastName": "Baumbach",
+			"friendAd": {
+				"city": "North Robertomouth",
+				"streetName": "Yost Radial",
+				"streeAdress": 7538
+			}
+		},
+		{
+			"friendName": "Beverly",
+			"friendLastName": "Moen",
+			"friendAd": {
+				"city": "Lake Jewelmouth",
+				"streetName": "Jackeline Route",
+				"streeAdress": 95034
+			}
+		},
+		{
+			"friendName": "Ciara",
+			"friendLastName": "Kutch",
+			"friendAd": {
+				"city": "Port Giaport",
+				"streetName": "Solon Squares",
+				"streeAdress": 6061
+			}
+		},
+		{
+			"friendName": "Arnaldo",
+			"friendLastName": "Koelpin",
+			"friendAd": {
+				"city": "West Jaidenberg",
+				"streetName": "Furman Locks",
+				"streeAdress": 468
+			}
+		},
+		{
+			"friendName": "Maggie",
+			"friendLastName": "Witting",
+			"friendAd": {
+				"city": "Kamrenview",
+				"streetName": "Robb Brooks",
+				"streeAdress": 7054
+			}
+		},
+		{
+			"friendName": "Doris",
+			"friendLastName": "Baumbach",
+			"friendAd": {
+				"city": "Traceyside",
+				"streetName": "Feeney Pike",
+				"streeAdress": 1568
+			}
+		},
+		{
+			"friendName": "Elijah",
+			"friendLastName": "DuBuque",
+			"friendAd": {
+				"city": "Hillsville",
+				"streetName": "Maude Ferry",
+				"streeAdress": 18901
+			}
+		},
+		{
+			"friendName": "Lewis",
+			"friendLastName": "Kreiger",
+			"friendAd": {
+				"city": "Paxtonfurt",
+				"streetName": "Rogers Plains",
+				"streeAdress": 3496
+			}
+		}
+	]
+}

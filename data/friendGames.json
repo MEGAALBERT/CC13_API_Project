@@ -1,9 +1,9 @@
 {
-	"data": [
+	"friendGames": [
 		{
 			"friendName": "Kayla",
 			"friendLastName": "Kovacek",
-            "games":["Mario","Contra"]
+            "games":["Mario","Contra","TheWitcher",""]
 		},
 		{
 			"friendName": "Corbin",
@@ -13,12 +13,12 @@
 		{
 			"friendName": "Frederic",
 			"friendLastName": "Quitzon",
-            "games":["Mario","Zelda"]
+            "games":["Mario","Zelda","FinalFantasy14"]
 		},
 		{
 			"friendName": "Marielle",
 			"friendLastName": "Cummerata",
-            "games":["TheWitcher2","Gladious"]
+            "games":["TheWitcher2","Gladious","Zelda"]
 		},
 		{
 			"friendName": "Oma",
@@ -28,12 +28,12 @@
 		{
 			"friendName": "Dagmar",
 			"friendLastName": "Luettgen",
-            "games":["FinalFantasy2","DragonQuest"]
+            "games":[]
 		},
 		{
 			"friendName": "Ena",
 			"friendLastName": "Gutmann",
-            "games":["FinalFantasy3","DragonQuest2"]
+            "games":["FinalFantasy3","DragonQuest2","DragonQuest11","DragonQuest3"]
 		},
 		{
 			"friendName": "Adriana",
@@ -43,7 +43,7 @@
 		{
 			"friendName": "Levi",
 			"friendLastName": "Carter",
-            "games":["DMC2","StreetFighter"]
+            "games":["DMC2","StreetFighter","DragonQuest3"]
 		},
 		{
 			"friendName": "Khalid",
@@ -53,12 +53,12 @@
 		{
 			"friendName": "Donny",
 			"friendLastName": "Brekke",
-            "games":["GTA5","MarioParty"]
+            "games":["GTA5","MarioParty","Zelda","DMC3"]
 		},
 		{
 			"friendName": "Constance",
 			"friendLastName": "Thiel",
-            "games":["Mario","Contra2"]
+            "games":["Mario","Contra2","DragonQuest3"]
 		},
 		{
 			"friendName": "Newell",
@@ -68,7 +68,7 @@
 		{
 			"friendName": "Beverly",
 			"friendLastName": "Moen",
-            "games":["TheWitcher3","Zelda"]
+            "games":["TheWitcher3","Zelda","DragonQuest3"]
 		},
 		{
 			"friendName": "Ciara",
@@ -78,7 +78,7 @@
 		{
 			"friendName": "Arnaldo",
 			"friendLastName": "Koelpin",
-            "games":["MarioParty","Contra2"]
+            "games":["MarioParty","Contra2","TheWitcher3"]
 		},
 		{
 			"friendName": "Maggie",
@@ -93,7 +93,7 @@
 		{
 			"friendName": "Elijah",
 			"friendLastName": "DuBuque",
-            "games":["MarioParty","Contra2"]
+            "games":["MarioParty","Contra2","TheWitcher3"]
 		},
 		{
 			"friendName": "Lewis",
