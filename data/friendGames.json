@@ -1,0 +1,104 @@
+{
+	"data": [
+		{
+			"friendName": "Kayla",
+			"friendLastName": "Kovacek",
+            "games":["Mario","Contra"]
+		},
+		{
+			"friendName": "Corbin",
+			"friendLastName": "Conn",
+            "games":["DMC3","Animal Crossing"]
+		},
+		{
+			"friendName": "Frederic",
+			"friendLastName": "Quitzon",
+            "games":["Mario","Zelda"]
+		},
+		{
+			"friendName": "Marielle",
+			"friendLastName": "Cummerata",
+            "games":["TheWitcher2","Gladious"]
+		},
+		{
+			"friendName": "Oma",
+			"friendLastName": "Pagac",
+            "games":["Contra3","FinalFantasy"]
+		},
+		{
+			"friendName": "Dagmar",
+			"friendLastName": "Luettgen",
+            "games":["FinalFantasy2","DragonQuest"]
+		},
+		{
+			"friendName": "Ena",
+			"friendLastName": "Gutmann",
+            "games":["FinalFantasy3","DragonQuest2"]
+		},
+		{
+			"friendName": "Adriana",
+			"friendLastName": "Olson",
+            "games":["TheWitcher3","FinalFantasy15"]
+		},
+		{
+			"friendName": "Levi",
+			"friendLastName": "Carter",
+            "games":["DMC2","StreetFighter"]
+		},
+		{
+			"friendName": "Khalid",
+			"friendLastName": "Funk",
+            "games":["FinalFantasy7","DragonQuest8"]
+		},
+		{
+			"friendName": "Donny",
+			"friendLastName": "Brekke",
+            "games":["GTA5","MarioParty"]
+		},
+		{
+			"friendName": "Constance",
+			"friendLastName": "Thiel",
+            "games":["Mario","Contra2"]
+		},
+		{
+			"friendName": "Newell",
+			"friendLastName": "Baumbach",
+            "games":["Mario","Contra3"]
+		},
+		{
+			"friendName": "Beverly",
+			"friendLastName": "Moen",
+            "games":["TheWitcher3","Zelda"]
+		},
+		{
+			"friendName": "Ciara",
+			"friendLastName": "Kutch",
+            "games":["Zelda","GTA5"]
+		},
+		{
+			"friendName": "Arnaldo",
+			"friendLastName": "Koelpin",
+            "games":["MarioParty","Contra2"]
+		},
+		{
+			"friendName": "Maggie",
+			"friendLastName": "Witting",
+            "games":["Mario","MarioParty"]
+		},
+		{
+			"friendName": "Doris",
+			"friendLastName": "Baumbach",
+            "games":["TheWitcher3","Contra2"]
+		},
+		{
+			"friendName": "Elijah",
+			"friendLastName": "DuBuque",
+            "games":["MarioParty","Contra2"]
+		},
+		{
+			"friendName": "Lewis",
+			"friendLastName": "Kreiger",
+            "games":["DMC3","Zelda"]
+		}
+	]
+}
