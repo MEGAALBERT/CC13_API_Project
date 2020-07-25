@@ -9,17 +9,7 @@
 
 <body>
 
-	<section>
-	
-		<article>
-			<header>
-				<h2>Article title</h2>
-				<p>Posted on <time datetime="2009-09-04T16:31:24+02:00">September 4th 2009</time> by <a href="#">Writer</a> - <a href="#comments">6 comments</a></p>
-			</header>
-			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-		</article>
-		
-	</section>
+<h1>Alberto API Friends and Games CC13 Project</h1>
 
 	<aside>
 		<h2>About section</h2>
@@ -29,7 +19,32 @@
 	<footer>
 		<p>Copyright 2009 Your name</p>
 	</footer>
+	<div id='get'>
 
+	</div>
+
+<script>
+const getData = document.getElementById('get');
+const url = 'http://localhost:4000/api/friend';
+
+fetch(url)
+.then((res)=> res.jason())
+.then((data)=>{
+	let friends = data.results;
+	return friends.map(friend=>{
+		let text = createNode('text');
+		append(text,friend);
+	})
+})
+
+function createNode(elem){
+	return document.createElement(elem);
+}
+
+function append(parent,el){
+	return parent.append(el);
+}
+</script>
 </body>
 
 </html>

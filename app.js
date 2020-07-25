@@ -14,17 +14,18 @@ app.use(bodyParser.urlencoded({extended:false}));
 // GET ENDPOINTS
 
 // get all my friends
-app.get("/friends", (req, res) => {
-    res.send(friendsData.friends);
+app.get("/api/friends", (req, res) => {
+    const friends = friendsData.friends;
+    res.send(friends);
 })
 
 // get all the games I'm interested
-app.get("/gamesInterested", (req, res) => {
+app.get("/api/gamesInterested", (req, res) => {
     res.send(friendsData.games);
 })
 
 //get an address of a friend by name
-app.get("/address/:name", (req, res) => {
+app.get("/api/address/:name", (req, res) => {
     const name = req.params.name;
     const foundFriend = friendsData.address.filter( friend => {
         return friend.friendName === name;
@@ -33,7 +34,7 @@ app.get("/address/:name", (req, res) => {
 })
 
 // get the games a friend has
-app.get("/friendsGames/:name", (req, res) => {
+app.get("/api/friendsGames/:name", (req, res) => {
     const name = req.params.name;
     const foundFriend = friendsData.friendGames.filter( friend => {
         return friend.friendName === name;
@@ -42,7 +43,7 @@ app.get("/friendsGames/:name", (req, res) => {
 })
 
 //get all friends that have a particular game
-app.get("/friendsGames/:game/friends",(req,res) => {
+app.get("/api/friendsGames/:game/friends",(req,res) => {
 const game = req.params.game;
 const selectFriends = [];
 for ( let i = 0; i< friendsData.friendGames.length; i++){
@@ -59,7 +60,7 @@ res.send(selectFriends);
 //POST ENDPOINTS
 
 // POST a new friend
-app.post("/friends", (req,res)=> {
+app.post("/api/friends", (req,res)=> {
     const newFriend = {
         friendName: req.body.name,
 		friendLastName: req.body.lastName,
@@ -69,7 +70,7 @@ app.post("/friends", (req,res)=> {
 })
 
 //POST new insterested game
-app.post("/gamesInterested", (req,res) => {
+app.post("/api/gamesInterested", (req,res) => {
     const newGame = {
         name : req.body.name,
     }
@@ -81,7 +82,7 @@ app.post("/gamesInterested", (req,res) => {
 // PATCH ENDPOINTS
 
 //Patch ad a game to a friend
-app.patch("/friends/:name", (req,res)=> {
+app.patch("/api/friends/:name", (req,res)=> {
     const name = req.params.name;
     let friend;
     const newGame = {
@@ -97,7 +98,7 @@ app.patch("/friends/:name", (req,res)=> {
     })
 
     //Patch change a friend address
-    app.patch("/address/:name",(req,res)=> {
+    app.patch("/api/address/:name",(req,res)=> {
         let name = req.params.name;
         let friend;
     for ( let i = 0; i< friendsData.address.length; i++){
@@ -114,7 +115,7 @@ app.patch("/friends/:name", (req,res)=> {
 // DELETE ENDPOINTS
 
 // Delete friend
-app.delete("/friends/:name", (req,res)=>{
+app.delete("/api/friends/:name", (req,res)=>{
     const name = req.params.name;
     const result = friendsData.friends.filter(friend => {
         return friend.friendName !== name
@@ -123,7 +124,7 @@ app.delete("/friends/:name", (req,res)=>{
 })
 
 // Delete game not interested anymore
-app.delete("/notInterested/:name",(req,res)=>{
+app.delete("/api/notInterested/:name",(req,res)=>{
     const game = req.params.name;
     const result = friendsData.games.filter(value => {
         return value.name !== game;
@@ -134,7 +135,7 @@ app.delete("/notInterested/:name",(req,res)=>{
 //Patch change my friend address
 
 // ********************{endpoints}**************************************
-// server port set up
+// SERVER SET UP
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
@@ -143,6 +144,7 @@ app.listen(PORT, () => {
 
 // express to host static files
 app.use(express.static('public'));
+
 
 // error handler
 app.use((err,req,res,next)=> {
