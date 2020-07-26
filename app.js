@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const friendsData = require("./data/data");
 const knex = require('./db/knex'); //Knex connection
+const path = require('path');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
@@ -48,7 +49,7 @@ app.get("/api/friendsGames/:name", (req, res) => {
       });
     });
 
-//get all friends that have a particular game ***TO FIX****
+//get all friends that have a particular game 
 app.get("/api/friendsGames/:game/friends",(req,res) => {
 const game = req.params.game;
 const selectFriends = [];
@@ -63,6 +64,7 @@ for ( let i = 0; i< friendsData.friendGames.length; i++){
 res.send(selectFriends);
 });
 
+//***TO FIX****
 app.get("/api/friendsGames/:game/friends2",(req,res) => {
     getAllFriendsGames(req.params.game).then(friends => {
         res.send(friends)
@@ -194,7 +196,7 @@ app.listen(PORT, () => {
 });
 
 // express to host static files
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname,'public')));
 
 
 // error handler
