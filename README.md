@@ -6,7 +6,15 @@ Creating a CRUD API service using Express, Knex and Postgres.
 
 For Gamers that want to keep track of the games a friend has and you can borrow.
 
+This repo is a wip made to learn Backend in code Chrysalis.
+
+## What is it?
+
+It is a API project create to control the friends we have and what videogames they have so we can borrow them! ;)
+
 ## Endpoints
+
+These are the endpoints we can use to work on our database, to see information (GET), to add information (POST), to change information (PATCH) and of course to delete information (DELETE)
 
 ### GET Endpoints
 
@@ -31,5 +39,7 @@ For Gamers that want to keep track of the games a friend has and you can borrow.
 - - "http://localhost:4000/api/friends/:name" Delete a friend
 
 ## Schema (WIP)
+
+This is the final schema to link the game table with friends table and know what game they have we can borrow!
 
 ![image](/Schema.JPG)
