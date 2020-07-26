@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 // get all my friends DB-----
 app.get("/api/friends", (req, res) => {
     getAllFriends().then(friends => {
-        res.send(friends);
+        res.json(friends);
     });
 });
  
@@ -41,12 +41,8 @@ app.get("/api/address/:name", (req, res) => {
 // get the games a friend has DB-----
 app.get("/api/friendsGames/:name", (req, res) => {
     getOneFriend(req.params.name).then(friend => {
-        if(friend) {
           res.json(friend);
-        } else {
-          next();
-        }
-      });
+       });
     });
 
 //get all friends that have a particular game 
@@ -164,7 +160,7 @@ const getAllFriendsGames = (game)=>{
 }
 
 const getOneFriend =(name)=> {
-    return knex('friendsGames').where('friendName', name).first();
+    return knex('friendsGames').where('friendName', name);
   }
 
   const createGame = (game)=> {

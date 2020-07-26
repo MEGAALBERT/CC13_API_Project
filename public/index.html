@@ -11,39 +11,134 @@
 
 <h1>Alberto API Friends and Games CC13 Project</h1>
 
-	<aside>
-		<h2>About section</h2>
-		<p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-	</aside>
+<button id="allFriends">Show all friends</button>
+<link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css'>
+<div id='getAllFriends'></div><br>
+
+<button id="gamesInterest">Show Games I'm interested</button>
+<div id='getInteretedGames'></div><br>
+
+<input type="text" id="fGames" placeholder="Friend">
+<button id="gamesOfFriend">Show Games a Friend has</button>
+<div id='getFriendGames'></div><br>
+
+<input type="text" id="fName" placeholder="FriendName"><br>
+<input type="text" id="fLName" placeholder="FriendLastName"><br>
+<button id="postFriend">Add Friend</button>
+<div id='showNewFriend'></div><br>
+
+<input type="text" id="deleteFriend" placeholder="Delete Friend">
+<button id="deleteButton">Delete</button>
+<div id='deletedFriend'></div><br>
+
 
 	<footer>
-		<p>Copyright 2009 Your name</p>
+		<p>Copyright 2020 Alberto Medellin</p>
 	</footer>
-	<div id='get'>
 
-	</div>
 
 <script>
-const getData = document.getElementById('get');
-const url = 'http://localhost:4000/api/friend';
 
-fetch(url)
-.then((res)=> res.jason())
-.then((data)=>{
-	let friends = data.results;
-	return friends.map(friend=>{
-		let text = createNode('text');
-		append(text,friend);
-	})
-})
+async function fetchFriends () {
+let result = await fetch('http://localhost:4000/api/friends');
+let friendArr = await result.json();
+let friendsDiv = document.getElementById('getAllFriends');
+let html = "<table border='1|1'>";
+	for (let i = 0; i < friendArr.length; i++) {
+    html+="<tr>";
+    html+="<td>"+friendArr[i].friendName+"</td>";
+    html+="<td>"+friendArr[i].friendLastName+"</td>";
 
-function createNode(elem){
-	return document.createElement(elem);
+    html+="</tr>";
+}
+html+="</table>";
+friendsDiv.innerHTML=html;
 }
 
-function append(parent,el){
-	return parent.append(el);
+const friendsButton = document.getElementById("allFriends");
+friendsButton.addEventListener('click', fetchFriends);
+
+async function fetchGamesInterested () {
+let result = await fetch('http://localhost:4000/api/gamesInterested');
+let gamesArr = await result.json();
+let gamesDiv = document.getElementById('getInteretedGames');
+let html = "<table border='1|1'>";
+	for (let i = 0; i < gamesArr.length; i++) {
+    html+="<tr>";
+    html+="<td>"+gamesArr[i].name+"</td>";
+
+    html+="</tr>";
 }
+html+="</table>";
+gamesDiv.innerHTML=html;
+}
+
+const gamesInterestedButton = document.getElementById("gamesInterest");
+gamesInterestedButton.addEventListener('click', fetchGamesInterested);
+
+async function fetchFriendGames () {
+let param = document.getElementById('fGames').value
+let result = await fetch(`http://localhost:4000/api/friendsGames/${param}`);
+let gamesArr = await result.json();
+let friendsGame = document.getElementById('getFriendGames');
+let html = "<table border='1|1'>";
+	for (let i = 0; i < gamesArr.length; i++) {
+    html+="<tr>";
+    html+="<td>"+gamesArr[i].friendName+"</td>";
+	html+="<td>"+gamesArr[i].friendLastName+"</td>";
+	html+="<td>"+gamesArr[i].games+"</td>";
+    html+="</tr>";
+}
+html+="</table>";
+friendsGame.innerHTML=html;
+}
+
+const friendsGameButton = document.getElementById("gamesOfFriend");
+friendsGameButton.addEventListener('click', fetchFriendGames);
+
+async function postNewFriend () {
+let name = document.getElementById('fName').value;
+let lastName = document.getElementById('fLName').value;
+let result = await fetch('http://localhost:4000/api/friends', {
+	method: 'POST',
+	headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+	body: JSON.stringify({
+		friendName : name,
+		friendLastName : lastName,
+  })
+});
+let newFriendArr = await result.json();
+console.log(newFriendArr);
+let newFriendDiv = document.getElementById('showNewFriend');
+let html = "<table border='1|1'>";
+	for (let i = 0; i < newFriendArr.length; i++) {
+    html+="<tr>";
+    html+="<td>"+newFriendArr[i].friendName+"</td>";
+	html+="<td>"+newFriendArr[i].friendLastName+"</td>";
+    html+="</tr>";
+}
+html+="</table>";
+newFriendDiv.innerHTML=html;
+}
+
+const addFriendButton = document.getElementById("postFriend");
+addFriendButton.addEventListener('click', postNewFriend);
+
+async function deleteFriend () {
+let name = document.getElementById('deleteFriend').value;
+let result = await fetch(`http://localhost:4000/api/friends/${name}`, {
+	method: 'DELETE',
+});
+let deleteFriendArr = await result.json();
+console.log(deleteFriendArr);
+}
+
+const deleteFriendButton = document.getElementById("deleteButton");
+deleteFriendButton.addEventListener('click', deleteFriend);
+
 </script>
 </body>
 
