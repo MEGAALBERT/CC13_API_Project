@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const friendsData = require("./data/data");
-
+const knex = require('./db/knex'); //Knex connection
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
@@ -13,15 +13,19 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 // GET ENDPOINTS
 
-// get all my friends
+// get all my friends DB-----
 app.get("/api/friends", (req, res) => {
-    const friends = friendsData.friends;
-    res.send(friends);
-})
+    getAllFriends().then(friends => {
+        res.send(friends);
+    });
+});
+ 
 
-// get all the games I'm interested
+// get all the games I'm interested DB-----
 app.get("/api/gamesInterested", (req, res) => {
-    res.send(friendsData.games);
+    getAllGames().then(games => {
+        res.send(games);
+    })
 })
 
 //get an address of a friend by name
@@ -33,16 +37,18 @@ app.get("/api/address/:name", (req, res) => {
     res.send(foundFriend);
 })
 
-// get the games a friend has
+// get the games a friend has DB-----
 app.get("/api/friendsGames/:name", (req, res) => {
-    const name = req.params.name;
-    const foundFriend = friendsData.friendGames.filter( friend => {
-        return friend.friendName === name;
-    })
-    res.send(foundFriend);
-})
+    getOneFriend(req.params.name).then(friend => {
+        if(friend) {
+          res.json(friend);
+        } else {
+          next();
+        }
+      });
+    });
 
-//get all friends that have a particular game
+//get all friends that have a particular game ***TO FIX****
 app.get("/api/friendsGames/:game/friends",(req,res) => {
 const game = req.params.game;
 const selectFriends = [];
@@ -57,6 +63,12 @@ for ( let i = 0; i< friendsData.friendGames.length; i++){
 res.send(selectFriends);
 });
 
+app.get("/api/friendsGames/:game/friends2",(req,res) => {
+    getAllFriendsGames(req.params.game).then(friends => {
+        res.send(friends)
+        })
+    });
+
 //POST ENDPOINTS
 
 // POST a new friend
@@ -69,20 +81,25 @@ app.post("/api/friends", (req,res)=> {
     res.send(friendsData.friends);
 })
 
-//POST new insterested game
-app.post("/api/gamesInterested", (req,res) => {
-    const newGame = {
-        name : req.body.name,
-    }
-    friendsData.games.push(newGame);
-    res.send(friendsData.games);
-})
+//POST new insterested game DB -----
 
+app.post("/api/gamesInterested", (req,res) => {
+    createGame(req.body).then(game => {
+        res.send(game);
+    })
+})
 
 // PATCH ENDPOINTS
 
+//Update a friends name DB-----
+app.patch("/api/friends/:name", (req,res)=>{
+    updateFriend(req.params.name , req.body).then(friend => {
+        res.send(friend);
+    })
+})
+
 //Patch ad a game to a friend
-app.patch("/api/friends/:name", (req,res)=> {
+app.patch("/api/friendsGame/:name", (req,res)=> {
     const name = req.params.name;
     let friend;
     const newGame = {
@@ -114,25 +131,59 @@ app.patch("/api/friends/:name", (req,res)=> {
 
 // DELETE ENDPOINTS
 
-// Delete friend
+// Delete friend DB-----
 app.delete("/api/friends/:name", (req,res)=>{
-    const name = req.params.name;
-    const result = friendsData.friends.filter(friend => {
-        return friend.friendName !== name
+    deleteFriend(req.params.name).then(()=> {
+        res.send("deleted:true");
     })
-    res.send(result);
 })
 
-// Delete game not interested anymore
+// Delete game not interested anymore DB-----
 app.delete("/api/notInterested/:name",(req,res)=>{
-    const game = req.params.name;
-    const result = friendsData.games.filter(value => {
-        return value.name !== game;
+    deleteGame(req.params.name).then(()=> {
+        res.send("deleted:true");
     })
-    res.send(result);
 })
 
-//Patch change my friend address
+
+
+//**************db helper funcions*******************************/
+
+const getAllFriends= ()=>{
+    return knex('friends');
+}
+
+const getAllGames= ()=>{
+    return knex('interestedGames');
+}
+
+const getAllFriendsGames = (game)=>{
+    return knex('friendsGames').whereIn('games', [game]);
+}
+
+const getOneFriend =(name)=> {
+    return knex('friendsGames').where('friendName', name).first();
+  }
+
+  const createGame = (game)=> {
+      return knex('interestedGames').insert(game, '*');
+  }
+
+  const updateFriend = (name, friendName) => {
+      return knex('friends').where('friendName', name).update(friendName, '*');
+  }
+
+  const deleteFriend = (name) => {
+      return knex('friends').where('friendName', name).del();
+  }
+
+  const deleteGame = (game) => {
+      return knex('interestedGames').where('name', game).del();
+  }
+
+//***********************************************/
+
+
 
 // ********************{endpoints}**************************************
 // SERVER SET UP
