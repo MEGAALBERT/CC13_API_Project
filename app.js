@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const friendsData = require("./data/data");
 const knex = require('./db/knex'); //Knex connection
 const path = require('path');
-
+//Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
@@ -191,6 +191,7 @@ app.listen(PORT, () => {
     console.log("Server is istening!!")
 });
 
+// Middleware
 // express to host static files
 app.use(express.static(path.join(__dirname,'public')));
 
